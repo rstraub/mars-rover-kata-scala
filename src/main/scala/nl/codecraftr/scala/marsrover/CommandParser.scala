@@ -10,6 +10,7 @@ object CommandParser {
     case "b" => MoveBackwards
     case "f" => MoveForward
     case "l" => RotateLeft
+    case "r" => RotateRight
     case _ =>
       throw new IllegalArgumentException(s"Unsupported command '$command'")
   }
