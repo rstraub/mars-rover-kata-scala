@@ -5,14 +5,16 @@ case class MarsRover(x: Int, y: Int, orientation: Orientation) {
     var rover = this
 
     commands.foreach(command => {
-      rover = orientation match {
-        case North => rover.copy(y = rover.y + 1)
-        case South => rover.copy(y = rover.y - 1)
-        case East  => rover.copy(x = rover.x + 1)
-        case West  => rover.copy(x = rover.x - 1)
-      }
+      rover = rover.forward
     })
 
     rover
+  }
+
+  private def forward: MarsRover = orientation match {
+    case North => copy(y = y + 1)
+    case South => copy(y = y - 1)
+    case East  => copy(x = x + 1)
+    case West  => copy(x = x - 1)
   }
 }
