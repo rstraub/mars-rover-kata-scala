@@ -9,7 +9,7 @@ object PositionParser {
             case 'E' => East
             case 'S' => South
             case 'W' => West
-            case _ => throw new IllegalArgumentException()
+            case _ => throw new IllegalArgumentException(s"Unsupported orientation '$orientation'")
         }
     }
 }
