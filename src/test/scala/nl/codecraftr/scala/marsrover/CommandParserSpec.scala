@@ -15,8 +15,16 @@ class CommandParserSpec extends AnyWordSpec with Matchers {
         .parseCommands("bb") shouldBe List(Backwards, Backwards)
     }
 
+    "return 'TurnLeft' given 'l's" in {
+      CommandParser
+        .parseCommands("ll") shouldBe List(TurnLeft, TurnLeft)
+    }
+
     "throw exception for other commands" in {
-      val ex = the [IllegalArgumentException] thrownBy CommandParser.parseCommands("xyz")
+      val ex =
+        the[IllegalArgumentException] thrownBy CommandParser.parseCommands(
+          "xyz"
+        )
 
       ex.getMessage shouldBe "Unsupported command 'x'"
     }

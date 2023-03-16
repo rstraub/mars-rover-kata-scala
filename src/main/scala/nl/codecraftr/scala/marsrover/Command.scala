@@ -4,3 +4,4 @@ sealed trait Command
 
 case object Forward extends Command
 case object Backwards extends Command
+case object TurnLeft extends Command
