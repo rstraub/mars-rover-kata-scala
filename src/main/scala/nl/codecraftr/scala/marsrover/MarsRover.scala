@@ -2,13 +2,9 @@ package nl.codecraftr.scala.marsrover
 
 case class MarsRover(x: Int, y: Int, orientation: Orientation) {
   def move(commands: List[Command]): MarsRover = {
-    var rover = this
-
-    commands.foreach(command => {
-      rover = rover.forward
+    commands.foldLeft(this)((rover, command) => {
+      rover.forward
     })
-
-    rover
   }
 
   private def forward: MarsRover = orientation match {
