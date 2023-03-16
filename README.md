@@ -12,5 +12,5 @@
 
 ## Takeaways
 
-- Bugs enter the application easily when using the same primitive type for things with different semantics
-- Tests helped catch these bugs early
+- Bugs easily occurred using the same primitive for different semantics (e.g. swapping x for y coordinate)
+- Tests caught these bugs early
