@@ -11,3 +11,6 @@
 - separate concerns (parsing/moving/etc)
 
 ## Takeaways
+
+- Bugs enter the application easily when using the same primitive type for things with different semantics
+- Tests helped catch these bugs early

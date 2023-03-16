@@ -5,6 +5,7 @@ object MarsRoverApp extends App {
     println(s"initial position: $x, $y, $orientation")
     println(s"commands: $commands")
 
+    println(s"parsed commands: ${CommandParser.parseCommands(commands)}")
     val rover = PositionParser.parse(x, y, orientation)
     s"final position: 'x=${rover.x}', 'y=${rover.y}', 'o=${rover.orientation}' "
   }
