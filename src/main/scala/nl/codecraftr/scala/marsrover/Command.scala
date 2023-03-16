@@ -2,6 +2,6 @@ package nl.codecraftr.scala.marsrover
 
 sealed trait Command
 
-case object Forward extends Command
-case object Backwards extends Command
-case object TurnLeft extends Command
+case object MoveForward extends Command
+case object MoveBackwards extends Command
+case object RotateLeft extends Command

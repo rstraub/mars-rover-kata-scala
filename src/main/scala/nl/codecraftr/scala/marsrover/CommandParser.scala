@@ -7,9 +7,9 @@ object CommandParser {
     .toList
 
   private def parseCommand(command: String): Command = command match {
-    case "b" => Backwards
-    case "f" => Forward
-    case "l" => TurnLeft
+    case "b" => MoveBackwards
+    case "f" => MoveForward
+    case "l" => RotateLeft
     case _ =>
       throw new IllegalArgumentException(s"Unsupported command '$command'")
   }

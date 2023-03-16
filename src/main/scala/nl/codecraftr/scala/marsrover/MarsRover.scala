@@ -5,9 +5,9 @@ case class MarsRover(x: Int, y: Int, orientation: Orientation) {
     commands.foldLeft(this)((rover, command) => rover.move(command))
 
   private def move(command: Command): MarsRover = command match {
-    case Forward   => forward
-    case Backwards => backward
-    case TurnLeft  => left
+    case MoveForward   => forward
+    case MoveBackwards => backward
+    case RotateLeft  => left
   }
 
   private def forward: MarsRover = orientation match {

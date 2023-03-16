@@ -22,5 +22,11 @@ class MarsRoverAppAcceptanceSpec extends AnyWordSpec with Matchers {
 
       result shouldBe "final position: 'x=0', 'y=0', 'o=South'"
     }
+
+    "rotate right" in {
+      val result = MarsRoverApp.move(0, 0, 'N', "ll")
+
+      result shouldBe "final position: 'x=0', 'y=0', 'o=South'"
+    }
   }
 }
