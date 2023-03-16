@@ -9,9 +9,9 @@ class MarsRoverSpec extends AnyWordSpec with Matchers {
   "move" when {
     "forward" should {
       "increase the y coordinate by 1 heading north" in {
-        val result = rover.move(List(Forward))
+        val result = rover.move(List(Forward, Forward))
 
-        result.y shouldBe 1
+        result.y shouldBe 2
       }
 
       "decrease the y coordinate by 1 heading south" in {
@@ -35,19 +35,13 @@ class MarsRoverSpec extends AnyWordSpec with Matchers {
         result.x shouldBe -1
       }
 
-      "change coordinate by 1 for each forward command" in {
-        val result =
-          rover.copy(orientation = North).move(List(Forward, Forward))
-
-        result.y shouldBe 2
-      }
     }
 
     "backwards" should {
       "decrease the y coordinate by 1 heading north" in {
-        val result = rover.move(List(Backwards))
+        val result = rover.move(List(Backwards, Backwards))
 
-        result.y shouldBe -1
+        result.y shouldBe -2
       }
 
       "increase the y coordinate by 1 heading south" in {
