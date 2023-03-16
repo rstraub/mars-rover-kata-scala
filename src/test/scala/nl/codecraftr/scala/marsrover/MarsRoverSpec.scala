@@ -70,22 +70,48 @@ class MarsRoverSpec extends AnyWordSpec with Matchers {
         result.orientation shouldBe West
       }
 
+      "change orientation to east given south" in {
+        val result = rover.copy(orientation = South).move(List(RotateLeft))
+
+        result.orientation shouldBe East
+      }
+
       "change orientation to south given west" in {
         val result = rover.copy(orientation = West).move(List(RotateLeft))
 
         result.orientation shouldBe South
       }
 
-      "change orientation to east given south" in {
-          val result = rover.copy(orientation = South).move(List(RotateLeft))
+      "change orientation to north given east" in {
+        val result = rover.copy(orientation = East).move(List(RotateLeft))
 
-          result.orientation shouldBe East
+        result.orientation shouldBe North
+      }
+    }
+
+    "right" should {
+      "change orientation to east given north" in {
+        val result = rover.copy(orientation = North).move(List(RotateRight))
+
+        result.orientation shouldBe East
       }
 
-      "change orientation to north given east" in {
-          val result = rover.copy(orientation = East).move(List(RotateLeft))
+      "change orientation to west given south" in {
+        val result = rover.copy(orientation = South).move(List(RotateRight))
 
-          result.orientation shouldBe North
+        result.orientation shouldBe West
+      }
+
+      "change orientation to south given east" in {
+        val result = rover.copy(orientation = East).move(List(RotateRight))
+
+        result.orientation shouldBe South
+      }
+
+      "change orientation to north given west" in {
+        val result = rover.copy(orientation = West).move(List(RotateRight))
+
+        result.orientation shouldBe North
       }
     }
   }
