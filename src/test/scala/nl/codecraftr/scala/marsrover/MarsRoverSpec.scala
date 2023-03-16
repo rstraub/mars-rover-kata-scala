@@ -34,6 +34,12 @@ class MarsRoverSpec extends AnyWordSpec with Matchers {
 
         result.x shouldBe -1
       }
+
+      "change coordinate by 1 for each forward command" in {
+        val result = rover.copy(orientation = North).move(List(Forward, Forward))
+
+        result.y shouldBe 2
+      }
     }
   }
 }

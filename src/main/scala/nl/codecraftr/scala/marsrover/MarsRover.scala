@@ -2,13 +2,17 @@ package nl.codecraftr.scala.marsrover
 
 case class MarsRover(x: Int, y: Int, orientation: Orientation) {
   def move(commands: List[Command]): MarsRover = {
-    val moved = orientation match {
-      case North => copy(y = y + 1)
-      case South => copy(y = y - 1)
-      case East  => copy(x = x + 1)
-      case West  => copy(x = x - 1)
-    }
+    var rover = this
 
-    moved
+    commands.foreach(command => {
+      rover = orientation match {
+        case North => rover.copy(y = rover.y + 1)
+        case South => rover.copy(y = rover.y - 1)
+        case East  => rover.copy(x = rover.x + 1)
+        case West  => rover.copy(x = rover.x - 1)
+      }
+    })
+
+    rover
   }
 }
