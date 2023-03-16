@@ -11,28 +11,23 @@ case class MarsRover(x: Int, y: Int, orientation: Orientation) {
     case RotateRight   => right
   }
 
-  private def forward: MarsRover = orientation match {
+  private def forward = orientation match {
     case North => copy(y = y + 1)
     case South => copy(y = y - 1)
     case East  => copy(x = x + 1)
     case West  => copy(x = x - 1)
   }
 
-  private def backward: MarsRover = orientation match {
+  private def backward = orientation match {
     case North => copy(y = y - 1)
     case South => copy(y = y + 1)
     case East  => copy(x = x - 1)
     case West  => copy(x = x + 1)
   }
 
-  private def left: MarsRover = orientation match {
-    case North => copy(orientation = West)
-    case South => copy(orientation = East)
-    case East  => copy(orientation = North)
-    case West  => copy(orientation = South)
-  }
+  private def left = copy(orientation = orientation.left)
 
-  private def right: MarsRover = orientation match {
+  private def right = orientation match {
     case North => copy(orientation = East)
     case South => copy(orientation = West)
     case East  => copy(orientation = South)
