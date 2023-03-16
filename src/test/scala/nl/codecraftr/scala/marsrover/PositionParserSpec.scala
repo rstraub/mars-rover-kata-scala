@@ -12,8 +12,7 @@ class PositionParserSpec
     "return the rover with x and y coordinates" in {
       val result = PositionParser.parse(1, 2, 'N')
 
-      result.x shouldBe 1
-      result.y shouldBe 2
+      result.coordinate shouldBe Coordinate(1, 2)
     }
 
     "return the rover with orientation" in {

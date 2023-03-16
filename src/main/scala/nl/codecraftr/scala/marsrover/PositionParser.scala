@@ -2,7 +2,7 @@ package nl.codecraftr.scala.marsrover
 
 object PositionParser {
   def parse(x: Int, y: Int, orientation: Char): MarsRover =
-    MarsRover(x, y, parseOrientation(orientation))
+    MarsRover(Coordinate(x, y), parseOrientation(orientation))
 
   private def parseOrientation(orientation: Char) = {
     orientation match {
