@@ -33,7 +33,7 @@ class PositionParserSpec
     }
 
     "throw an exception given other orientation" in {
-      val ex = the [IllegalArgumentException] thrownBy PositionParser
+      val ex = the[IllegalArgumentException] thrownBy PositionParser
         .parse(0, 0, 'X')
 
       ex.getMessage shouldBe "Unsupported orientation 'X'"
