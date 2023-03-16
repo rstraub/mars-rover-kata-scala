@@ -4,35 +4,36 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 class MarsRoverSpec extends AnyWordSpec with Matchers {
-  private val rover = MarsRover(Coordinate(0, 0), North)
+    private val coordinate = Coordinate(X(0), Y(0))
+    private val rover = MarsRover(coordinate, North)
 
   "move" when {
     "forward" should {
       "increase the y coordinate by 1 heading north" in {
         val result = rover.move(List(MoveForward, MoveForward))
 
-        result.coordinate shouldBe Coordinate(0, 2)
+        result.coordinate shouldBe coordinate.copy(y = Y(2))
       }
 
       "decrease the y coordinate by 1 heading south" in {
         val result =
           rover.copy(orientation = South).move(List(MoveForward))
 
-        result.coordinate shouldBe Coordinate(0, -1)
+        result.coordinate shouldBe coordinate.copy(y = Y(-1))
       }
 
       "increase the x coordinate by 1 heading east" in {
         val result =
           rover.copy(orientation = East).move(List(MoveForward))
 
-        result.coordinate shouldBe Coordinate(1, 0)
+        result.coordinate shouldBe coordinate.copy(x = X(1))
       }
 
       "decrease the x coordinate by 1 heading west" in {
         val result =
           rover.copy(orientation = West).move(List(MoveForward))
 
-        result.coordinate shouldBe Coordinate(-1, 0)
+        result.coordinate shouldBe coordinate.copy(x = X(-1))
       }
 
     }
@@ -41,25 +42,25 @@ class MarsRoverSpec extends AnyWordSpec with Matchers {
       "decrease the y coordinate by 1 heading north" in {
         val result = rover.move(List(MoveBackwards, MoveBackwards))
 
-        result.coordinate shouldBe Coordinate(0, -2)
+        result.coordinate shouldBe coordinate.copy(y = Y(-2))
       }
 
       "increase the y coordinate by 1 heading south" in {
         val result = rover.copy(orientation = South).move(List(MoveBackwards))
 
-        result.coordinate shouldBe Coordinate(0, 1)
+        result.coordinate shouldBe coordinate.copy(y = Y(1))
       }
 
       "decrease the x coordinate by 1 heading east" in {
         val result = rover.copy(orientation = East).move(List(MoveBackwards))
 
-        result.coordinate shouldBe Coordinate(-1, 0)
+        result.coordinate shouldBe coordinate.copy(x = X(-1))
       }
 
       "increase the x coordinate by 1 heading west" in {
         val result = rover.copy(orientation = West).move(List(MoveBackwards))
 
-        result.coordinate shouldBe Coordinate(1, 0)
+        result.coordinate shouldBe coordinate.copy(x = X(1))
       }
     }
 

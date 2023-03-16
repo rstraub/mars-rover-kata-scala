@@ -8,7 +8,10 @@ object MarsRoverApp extends App {
     val initialRover = PositionParser.parse(x, y, orientation)
     val stoppedRover = initialRover.move(CommandParser.parseCommands(commands))
 
-    s"final position: 'x=${stoppedRover.coordinate.x}', 'y=${stoppedRover.coordinate.y}', 'o=${stoppedRover.orientation}'"
+    s"final position: " +
+      s"'x=${stoppedRover.coordinate.x.value}', " +
+      s"'y=${stoppedRover.coordinate.y.value}', " +
+      s"'o=${stoppedRover.orientation}'"
   }
 
   move(0, 0, 'N', "ffbllr")
