@@ -26,11 +26,5 @@ case class MarsRover(x: Int, y: Int, orientation: Orientation) {
   }
 
   private def left = copy(orientation = orientation.left)
-
-  private def right = orientation match {
-    case North => copy(orientation = East)
-    case South => copy(orientation = West)
-    case East  => copy(orientation = South)
-    case West  => copy(orientation = North)
-  }
+  private def right = copy(orientation = orientation.right)
 }
