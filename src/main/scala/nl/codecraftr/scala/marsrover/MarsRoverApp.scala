@@ -14,5 +14,5 @@ object MarsRoverApp extends App {
       s"'o=${stoppedRover.orientation}'"
   }
 
-  move(0, 0, 'N', "ffbllr")
+  println(move(0, 0, 'N', "ffbllrb"))
 }
