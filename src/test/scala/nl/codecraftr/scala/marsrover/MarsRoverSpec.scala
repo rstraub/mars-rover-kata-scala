@@ -4,8 +4,8 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 class MarsRoverSpec extends AnyWordSpec with Matchers {
-    private val coordinate = Coordinate(X(0), Y(0))
-    private val rover = MarsRover(coordinate, North)
+  private val coordinate = Coordinate(X(0), Y(0))
+  private val rover = MarsRover(coordinate, North)
 
   "move" when {
     "forward" should {
